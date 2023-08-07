@@ -1,0 +1,110 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+:root {
+    --background: #ebab5e;
+}
+body{
+    background-color: aliceblue;
+}
+.container {
+    margin: 0;
+    padding: 0;
+}
+header {
+    text-align: center;
+    padding: 20px;
+    color: white;
+    background-image: linear-gradient(to right, orange, #4d53eb);
+}
+h1 {
+    margin-left: 400px;
+    font-size: 40px;
+    font-weight: bold;
+}
+#heading {
+    font-size: 20px;
+    font-weight: bolder;
+}
+.searchengine {
+    margin: 20px 5px 0px 10px;
+    height:100%;
+}
+.weatherforecast{
+    margin-top: 20px;
+}
+#citysearch {
+    margin-top: 10px;
+    width: 260px;
+    border-radius: 5px;
+    border: 1px solid;
+    line-height: 30px;
+    padding: 3px;
+}
+#searchbar {
+    margin-top: 10px;
+    width: 260px;
+    border-radius: 5px;
+    border: 1px solid;
+    text-align: center;
+    background-color: #4d53eb;
+    color: white;
+    line-height: 20px;
+}
+.citylist{
+    margin-top: 10px;
+}
+.card-body {
+    margin-left: 10px;
+    padding-left: 20px;
+    padding-top: 10px;
+    border: 1px solid var(--background);
+    display: none;
+    background-color: var(--background);
+    border-radius: 5px;
+}
+.dayblocks {
+    margin-top: 10px;
+}
+#city-name {
+    font-size: 25px;
+    font-weight: bold;
+}
+#futureforecast{
+    margin-top:20px;
+    font-size: 17px;
+    font-weight: bold;
+    display:none;
+}
+.forecast {
+    margin: 13px;
+    padding: 10px;
+    line-height: 20px;
+    height: 250px;
+}
+#box1 {
+    border: 1px solid var(--background);
+    display: none;
+    background-color: var(--background);
+}
+#box2 {
+    border: 1px solid var(--background);
+    display: none;
+    background-color: var(--background);
+}
+#box3 {
+    border: 1px solid var(--background);
+    display: none;
+    background-color: var(--background);
+}
+#box4 {
+    border: 1px solid var(--background);
+    display: none;
+    background-color: var(--background);
+}
+#box5 {
+    border: 1px solid var(--background);
+    display: none;
+    background-color: var(--background);
+}
