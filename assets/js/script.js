@@ -19,13 +19,14 @@ let box4 = document.getElementById("box4");
 let box5 = document.getElementById("box5");
 let cityHistoryList = document.getElementById("citylist");
 let forecastEls = document.querySelectorAll(".forecast");
+let apiCode = "5d828cbc2b8b39c9e4ee82e61523bb81";
 let searchHistory = JSON.parse(localStorage.getItem("search")) || [];
 
 
 // functions
 function findCityInfo(city) {
 //  connect the city name into the parameter of the requestUrl
-    let requestUrl = 'https://api.openweathermap.org/data/2.5/weather?q=' + city + '&limit=1&appid=5d828cbc2b8b39c9e4ee82e61523bb81';
+    let requestUrl = 'https://api.openweathermap.org/data/2.5/weather?q=' + city + '&limit=1&appid=' + apiCode;
     // fetch request gets the data back of the city weather. If it is ok, collect the data and display.
     fetch(requestUrl)
         .then(function (response) {
@@ -71,7 +72,7 @@ let displayInfo = function(info){
 
 function findFutureInfo(city){
 // get api data for future 5 days
-let forecastUrl = 'https://api.openweathermap.org/data/2.5/forecast?q=' + city + '&limit=1&appid=5d828cbc2b8b39c9e4ee82e61523bb81';
+let forecastUrl = 'https://api.openweathermap.org/data/2.5/forecast?q=' + city + '&limit=1&appid=' + apiCode;
 
 fetch(forecastUrl)
 .then(function (response) {
