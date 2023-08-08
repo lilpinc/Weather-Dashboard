@@ -22,16 +22,11 @@ let forecastEls = document.querySelectorAll(".forecast");
 let searchHistory = JSON.parse(localStorage.getItem("search")) || [];
 
 
-
-
 // functions
-// when i type in the city and hit the search bar, a function runs that reads the input
-// need to connect the city name into the parameter into the requestUrl.
-
 function findCityInfo(city) {
-
+//  connect the city name into the parameter of the requestUrl
     let requestUrl = 'https://api.openweathermap.org/data/2.5/weather?q=' + city + '&limit=1&appid=5d828cbc2b8b39c9e4ee82e61523bb81';
-    // fetch request gets the weather back of the city 
+    // fetch request gets the data back of the city weather. If it is ok, collect the data and display.
     fetch(requestUrl)
         .then(function (response) {
             if (response.ok) {
@@ -54,6 +49,7 @@ let displayInfo = function(info){
     if (info.length === 0){
         chosenCityEl.textContent = "No weather information found";
     } else {
+        // display information gathered from the api onto the page. display date, temperature, humidity, wind, and a weather icon
         cardBody.setAttribute("style", "display:block");
         futureForecast.setAttribute("style", "display:block");
         let date = new Date();
@@ -74,7 +70,7 @@ let displayInfo = function(info){
 };
 
 function findFutureInfo(city){
-
+// get api data for future 5 days
 let forecastUrl = 'https://api.openweathermap.org/data/2.5/forecast?q=' + city + '&limit=1&appid=5d828cbc2b8b39c9e4ee82e61523bb81';
 
 fetch(forecastUrl)
@@ -94,7 +90,7 @@ fetch(forecastUrl)
     alert('Unable to connect');
 });
 };
-
+// display the information from the api for future forecasts
 let displayFutureInfo = function(info){
     if (info.length === 0){
         chosenCityEl.textContent = "No weather information found";
@@ -105,7 +101,7 @@ let displayFutureInfo = function(info){
        box3.setAttribute("style", "display: block; border-radius:5px; color: black; font-size:13px;");
        box4.setAttribute("style", "display: block; border-radius:5px; color: black; font-size:13px;");
        box5.setAttribute("style", "display: block; border-radius:5px; color: black; font-size:13px;");
-
+// create elements for each data info displayed and connect to api
         for (i = 0; i < forecastEls.length; i++) {
             forecastEls[i].innerHTML = " ";
             let forecastIndex = i * 8 + 4;
@@ -131,31 +127,30 @@ let displayFutureInfo = function(info){
             forecastEls[i].append(forecastTempEl);
             forecastEls[i].append(forecastWindEl);
             forecastEls[i].append(forecastHumidityEl);
-
+            //add connected information to the element in the html  
 
         };
     };
 };
 
-// when it reads the input a request is sent for the data via an api, which brings back the data
-// when the data response is met, the data is collected and displayed
-// the day of and 5 days will be displayed
-// the data is collected and saved in local storage, a button is created in the search history space
-// when clicked it targets the old data and gets it from local storage
-
 
 // special functions
+// when I type in the city and hit the search bar, a function runs that reads the input
+// event listener button for search bar
 searchBar.addEventListener("click", function(){
 
     let cityEl = searchInput.value.trim();
     findCityInfo(cityEl);
     findFutureInfo(cityEl);
     searchHistory.push(cityEl);
+    // stored the search history into local storage
     localStorage.setItem("search", JSON.stringify(searchHistory));
+    // get the search history
     getSearchHistory();
 
 });
-
+// display the search history
+// make the search history clickable and let it retrieve the data from local storage
 function getSearchHistory(){
     cityHistoryList.innerHTML = "";
     for ( let i = 0; i < searchHistory.length; i++){
@@ -165,20 +160,9 @@ function getSearchHistory(){
     cityList.setAttribute("value", searchHistory[i]);
     cityList.innerHTML = searchHistory[i];
     cityHistoryList.append(cityList);
-
+    // event listener target for the search history information
     cityList.addEventListener("click", function () {
         findCityInfo(cityList.value);
         findFutureInfo(cityList.value);
     });
 }};
-
-
-
-
-// event listener button for search bar
-// event listener target for the search history locations
-
-
-
-
-// business
