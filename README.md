@@ -22,6 +22,7 @@ Collaborators/Third-party:
 - Bootcamp Instructor Dan, TA's, and classmates.
 - Stack Overflow:
 https://stackoverflow.com/questions/1232793/javascript-set-img-src
+https://stackoverflow.com/questions/69619035/error-with-permissions-policy-header-unrecognized-feature-interest-cohort
 - Modzilla.org
 - W3schools.com
 
